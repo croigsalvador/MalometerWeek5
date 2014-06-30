@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D9A592119616C48006CB73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A592019616C48006CB73F /* Foundation.framework */; };
+		1D9A592319616C48006CB73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A592219616C48006CB73F /* CoreGraphics.framework */; };
+		1D9A592519616C48006CB73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A592419616C48006CB73F /* UIKit.framework */; };
+		1D9A592719616C48006CB73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A592619616C48006CB73F /* CoreData.framework */; };
+		1D9A592D19616C48006CB73F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D9A592B19616C48006CB73F /* InfoPlist.strings */; };
+		1D9A592F19616C48006CB73F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A592E19616C48006CB73F /* main.m */; };
+		1D9A593319616C49006CB73F /* IHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593219616C49006CB73F /* IHAppDelegate.m */; };
+		1D9A593619616C49006CB73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9A593419616C49006CB73F /* Main.storyboard */; };
+		1D9A593919616C49006CB73F /* MalometerWeek5.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593719616C49006CB73F /* MalometerWeek5.xcdatamodeld */; };
+		1D9A593C19616C49006CB73F /* IHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593B19616C49006CB73F /* IHMasterViewController.m */; };
+		1D9A593F19616C49006CB73F /* IHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593E19616C49006CB73F /* IHDetailViewController.m */; };
+		1D9A594119616C49006CB73F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D9A594019616C49006CB73F /* Images.xcassets */; };
+		1D9A594819616C49006CB73F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A594719616C49006CB73F /* XCTest.framework */; };
+		1D9A594919616C49006CB73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A592019616C48006CB73F /* Foundation.framework */; };
+		1D9A594A19616C49006CB73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A592419616C48006CB73F /* UIKit.framework */; };
+		1D9A594B19616C49006CB73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A592619616C48006CB73F /* CoreData.framework */; };
+		1D9A595319616C49006CB73F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D9A595119616C49006CB73F /* InfoPlist.strings */; };
+		1D9A595519616C49006CB73F /* MalometerWeek5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A595419616C49006CB73F /* MalometerWeek5Tests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1D9A594C19616C49006CB73F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D9A591519616C48006CB73F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D9A591C19616C48006CB73F;
+			remoteInfo = MalometerWeek5;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D9A591D19616C48006CB73F /* MalometerWeek5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MalometerWeek5.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D9A592019616C48006CB73F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D9A592219616C48006CB73F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1D9A592419616C48006CB73F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1D9A592619616C48006CB73F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1D9A592A19616C48006CB73F /* MalometerWeek5-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MalometerWeek5-Info.plist"; sourceTree = "<group>"; };
+		1D9A592C19616C48006CB73F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1D9A592E19616C48006CB73F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1D9A593019616C48006CB73F /* MalometerWeek5-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MalometerWeek5-Prefix.pch"; sourceTree = "<group>"; };
+		1D9A593119616C48006CB73F /* IHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHAppDelegate.h; sourceTree = "<group>"; };
+		1D9A593219616C49006CB73F /* IHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IHAppDelegate.m; sourceTree = "<group>"; };
+		1D9A593519616C49006CB73F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1D9A593819616C49006CB73F /* MalometerWeek5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MalometerWeek5.xcdatamodel; sourceTree = "<group>"; };
+		1D9A593A19616C49006CB73F /* IHMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHMasterViewController.h; sourceTree = "<group>"; };
+		1D9A593B19616C49006CB73F /* IHMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IHMasterViewController.m; sourceTree = "<group>"; };
+		1D9A593D19616C49006CB73F /* IHDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHDetailViewController.h; sourceTree = "<group>"; };
+		1D9A593E19616C49006CB73F /* IHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IHDetailViewController.m; sourceTree = "<group>"; };
+		1D9A594019616C49006CB73F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1D9A594619616C49006CB73F /* MalometerWeek5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MalometerWeek5Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D9A594719616C49006CB73F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1D9A595019616C49006CB73F /* MalometerWeek5Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MalometerWeek5Tests-Info.plist"; sourceTree = "<group>"; };
+		1D9A595219616C49006CB73F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1D9A595419616C49006CB73F /* MalometerWeek5Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MalometerWeek5Tests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D9A591A19616C48006CB73F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D9A592319616C48006CB73F /* CoreGraphics.framework in Frameworks */,
+				1D9A592719616C48006CB73F /* CoreData.framework in Frameworks */,
+				1D9A592519616C48006CB73F /* UIKit.framework in Frameworks */,
+				1D9A592119616C48006CB73F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D9A594319616C49006CB73F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D9A594819616C49006CB73F /* XCTest.framework in Frameworks */,
+				1D9A594B19616C49006CB73F /* CoreData.framework in Frameworks */,
+				1D9A594A19616C49006CB73F /* UIKit.framework in Frameworks */,
+				1D9A594919616C49006CB73F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1D9A591419616C48006CB73F = {
+			isa = PBXGroup;
+			children = (
+				1D9A592819616C48006CB73F /* MalometerWeek5 */,
+				1D9A594E19616C49006CB73F /* MalometerWeek5Tests */,
+				1D9A591F19616C48006CB73F /* Frameworks */,
+				1D9A591E19616C48006CB73F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1D9A591E19616C48006CB73F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A591D19616C48006CB73F /* MalometerWeek5.app */,
+				1D9A594619616C49006CB73F /* MalometerWeek5Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1D9A591F19616C48006CB73F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A592019616C48006CB73F /* Foundation.framework */,
+				1D9A592219616C48006CB73F /* CoreGraphics.framework */,
+				1D9A592419616C48006CB73F /* UIKit.framework */,
+				1D9A592619616C48006CB73F /* CoreData.framework */,
+				1D9A594719616C49006CB73F /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1D9A592819616C48006CB73F /* MalometerWeek5 */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A593119616C48006CB73F /* IHAppDelegate.h */,
+				1D9A593219616C49006CB73F /* IHAppDelegate.m */,
+				1D9A593419616C49006CB73F /* Main.storyboard */,
+				1D9A593A19616C49006CB73F /* IHMasterViewController.h */,
+				1D9A593B19616C49006CB73F /* IHMasterViewController.m */,
+				1D9A593D19616C49006CB73F /* IHDetailViewController.h */,
+				1D9A593E19616C49006CB73F /* IHDetailViewController.m */,
+				1D9A594019616C49006CB73F /* Images.xcassets */,
+				1D9A593719616C49006CB73F /* MalometerWeek5.xcdatamodeld */,
+				1D9A592919616C48006CB73F /* Supporting Files */,
+			);
+			path = MalometerWeek5;
+			sourceTree = "<group>";
+		};
+		1D9A592919616C48006CB73F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A592A19616C48006CB73F /* MalometerWeek5-Info.plist */,
+				1D9A592B19616C48006CB73F /* InfoPlist.strings */,
+				1D9A592E19616C48006CB73F /* main.m */,
+				1D9A593019616C48006CB73F /* MalometerWeek5-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1D9A594E19616C49006CB73F /* MalometerWeek5Tests */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A595419616C49006CB73F /* MalometerWeek5Tests.m */,
+				1D9A594F19616C49006CB73F /* Supporting Files */,
+			);
+			path = MalometerWeek5Tests;
+			sourceTree = "<group>";
+		};
+		1D9A594F19616C49006CB73F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A595019616C49006CB73F /* MalometerWeek5Tests-Info.plist */,
+				1D9A595119616C49006CB73F /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D9A591C19616C48006CB73F /* MalometerWeek5 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D9A595819616C49006CB73F /* Build configuration list for PBXNativeTarget "MalometerWeek5" */;
+			buildPhases = (
+				1D9A591919616C48006CB73F /* Sources */,
+				1D9A591A19616C48006CB73F /* Frameworks */,
+				1D9A591B19616C48006CB73F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MalometerWeek5;
+			productName = MalometerWeek5;
+			productReference = 1D9A591D19616C48006CB73F /* MalometerWeek5.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1D9A594519616C49006CB73F /* MalometerWeek5Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D9A595B19616C49006CB73F /* Build configuration list for PBXNativeTarget "MalometerWeek5Tests" */;
+			buildPhases = (
+				1D9A594219616C49006CB73F /* Sources */,
+				1D9A594319616C49006CB73F /* Frameworks */,
+				1D9A594419616C49006CB73F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1D9A594D19616C49006CB73F /* PBXTargetDependency */,
+			);
+			name = MalometerWeek5Tests;
+			productName = MalometerWeek5Tests;
+			productReference = 1D9A594619616C49006CB73F /* MalometerWeek5Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1D9A591519616C48006CB73F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = IH;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = IronHack;
+				TargetAttributes = {
+					1D9A594519616C49006CB73F = {
+						TestTargetID = 1D9A591C19616C48006CB73F;
+					};
+				};
+			};
+			buildConfigurationList = 1D9A591819616C48006CB73F /* Build configuration list for PBXProject "MalometerWeek5" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1D9A591419616C48006CB73F;
+			productRefGroup = 1D9A591E19616C48006CB73F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D9A591C19616C48006CB73F /* MalometerWeek5 */,
+				1D9A594519616C49006CB73F /* MalometerWeek5Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D9A591B19616C48006CB73F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D9A594119616C49006CB73F /* Images.xcassets in Resources */,
+				1D9A592D19616C48006CB73F /* InfoPlist.strings in Resources */,
+				1D9A593619616C49006CB73F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D9A594419616C49006CB73F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D9A595319616C49006CB73F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D9A591919616C48006CB73F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D9A592F19616C48006CB73F /* main.m in Sources */,
+				1D9A593F19616C49006CB73F /* IHDetailViewController.m in Sources */,
+				1D9A593319616C49006CB73F /* IHAppDelegate.m in Sources */,
+				1D9A593919616C49006CB73F /* MalometerWeek5.xcdatamodeld in Sources */,
+				1D9A593C19616C49006CB73F /* IHMasterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D9A594219616C49006CB73F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D9A595519616C49006CB73F /* MalometerWeek5Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1D9A594D19616C49006CB73F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D9A591C19616C48006CB73F /* MalometerWeek5 */;
+			targetProxy = 1D9A594C19616C49006CB73F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1D9A592B19616C48006CB73F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D9A592C19616C48006CB73F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1D9A593419616C49006CB73F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D9A593519616C49006CB73F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1D9A595119616C49006CB73F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1D9A595219616C49006CB73F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1D9A595619616C49006CB73F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		1D9A595719616C49006CB73F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1D9A595919616C49006CB73F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MalometerWeek5/MalometerWeek5-Prefix.pch";
+				INFOPLIST_FILE = "MalometerWeek5/MalometerWeek5-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1D9A595A19616C49006CB73F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MalometerWeek5/MalometerWeek5-Prefix.pch";
+				INFOPLIST_FILE = "MalometerWeek5/MalometerWeek5-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1D9A595C19616C49006CB73F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MalometerWeek5.app/MalometerWeek5";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MalometerWeek5/MalometerWeek5-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MalometerWeek5Tests/MalometerWeek5Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1D9A595D19616C49006CB73F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MalometerWeek5.app/MalometerWeek5";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MalometerWeek5/MalometerWeek5-Prefix.pch";
+				INFOPLIST_FILE = "MalometerWeek5Tests/MalometerWeek5Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D9A591819616C48006CB73F /* Build configuration list for PBXProject "MalometerWeek5" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D9A595619616C49006CB73F /* Debug */,
+				1D9A595719616C49006CB73F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1D9A595819616C49006CB73F /* Build configuration list for PBXNativeTarget "MalometerWeek5" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D9A595919616C49006CB73F /* Debug */,
+				1D9A595A19616C49006CB73F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1D9A595B19616C49006CB73F /* Build configuration list for PBXNativeTarget "MalometerWeek5Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D9A595C19616C49006CB73F /* Debug */,
+				1D9A595D19616C49006CB73F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1D9A593719616C49006CB73F /* MalometerWeek5.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D9A593819616C49006CB73F /* MalometerWeek5.xcdatamodel */,
+			);
+			currentVersion = 1D9A593819616C49006CB73F /* MalometerWeek5.xcdatamodel */;
+			path = MalometerWeek5.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 1D9A591519616C48006CB73F /* Project object */;
+}
