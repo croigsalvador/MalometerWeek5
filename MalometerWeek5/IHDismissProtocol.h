@@ -12,6 +12,6 @@
 
 @protocol IHDismissProtocol <NSObject>
 
-- (void)modifiedData;
+- (void)modifiedDataInController:(IHAgentEditViewController *)controller modified:(BOOL)modified;
 
 @end

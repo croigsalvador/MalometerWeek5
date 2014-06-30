@@ -7,6 +7,7 @@
 //
 
 #import "IHAgentEditViewController.h"
+#import "Agent.h"
 
 @interface IHAgentEditViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *destructionPowerLabel;
@@ -19,7 +20,7 @@
 @property (strong, nonatomic) NSArray *destructionPowers;
 @property (strong, nonatomic) NSArray *motivations;
 
-@property (nonatomic, getter = isEditing) BOOL editing;
+@property (nonatomic, getter = isModified) BOOL modified;
 
 - (void)configureView;
 @end
@@ -53,7 +54,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-
+    
     [self configureView];
     [self setupArrays];
     [self setupDefaultLabelValues];
@@ -75,29 +76,28 @@
 #pragma mark - Action Methods
 
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender {
-    [self.delegate modifiedData];
+    if ([self.delegate respondsToSelector:@selector(modifiedDataInController:modified:)]) {
+        [self.delegate modifiedDataInController:self modified:self.isModified];
+ 
+    }
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
- 
-        [self.nameTextField resignFirstResponder];
-        [self.agent setValue:self.nameTextField.text forKey:@"name"];
-        
-        NSUInteger value =(NSUInteger)self.destructionStepper.value;
-        [self.agent setValue:[NSNumber numberWithInt:value] forKey:@"destructionPower"];
-        
-        NSUInteger motivationValue = (NSUInteger)self.motivationStepper.value;
-        [self.agent setValue:[NSNumber numberWithInt:motivationValue] forKey:@"motivation"];
+    self.modified = YES;
+    [self.nameTextField resignFirstResponder];
+    self.agent.name = self.nameTextField.text;
 }
 
 - (IBAction)destructionPowerChanged:(UIStepper *)sender {
     NSUInteger value =(NSUInteger)sender.value;
     self.destructionPowerLabel.text = self.destructionPowers[value];
+    self.agent.destructionPower = [NSNumber numberWithInt:value];
 }
 
 - (IBAction)motivationValueChanged:(UIStepper *)sender {
     NSUInteger value =(NSUInteger)sender.value;
     self.motivationLabel.text = self.motivations[value];
+    self.agent.motivation =[NSNumber numberWithInt:value];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {

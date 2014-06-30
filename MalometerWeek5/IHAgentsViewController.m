@@ -8,13 +8,13 @@
 
 #import "IHAgentsViewController.h"
 #import "IHAgentEditViewController.h"
+#import "Agent.h"
 
 static NSString *kSegueIdentifier       = @"CreateAgent";
 static NSString *kAgentKey              = @"Agent";
 
 @interface IHAgentsViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-@property (strong, nonatomic) NSUndoManager *undoManager;
 @end
 
 @implementation IHAgentsViewController
@@ -28,16 +28,6 @@ static NSString *kAgentKey              = @"Agent";
     [super viewDidLoad];
 }
 
-#pragma mark - Custom Getter
-
-- (NSUndoManager *)undoManager {
-    if (!undoManager) {
-        undoManager = self.managedObjectContext.undoManager;
-        undoManager.levelsOfUndo = 10;
-        undoManager.groupsByEvent = NO;
-    }
-    return undoManager;
-}
 
 #pragma mark -
 #pragma mark - Navigation
@@ -57,9 +47,8 @@ static NSString *kAgentKey              = @"Agent";
 }
 
 - (void)moveToDetailsViewControllerWithSegue:(UIStoryboardSegue *)segue {
-    
-    [self.undoManager beginUndoGrouping];
-    NSManagedObject *agent = [NSEntityDescription insertNewObjectForEntityForName:kAgentKey inManagedObjectContext:self.managedObjectContext];
+    [self.managedObjectContext.undoManager beginUndoGrouping];
+    Agent *agent = [NSEntityDescription insertNewObjectForEntityForName:kAgentKey inManagedObjectContext:self.managedObjectContext];
     UINavigationController *navViewController = [segue destinationViewController];
     IHAgentEditViewController *detailsViewController =  [navViewController.viewControllers lastObject];
     detailsViewController.agent = agent;
@@ -205,28 +194,23 @@ static NSString *kAgentKey              = @"Agent";
     [self.tableView endUpdates];
 }
 
-/*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
-}
- */
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"name"] description];
+    Agent *agent = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [agent.name description];
 }
 
 #pragma mark -
 #pragma mark - Details Delegate methods
 
-- (void)modifiedData {
-    [self.undoManager endUndoGrouping];
+- (void)modifiedDataInController:(IHAgentEditViewController *)controller modified:(BOOL)modified {
+    [self.managedObjectContext.undoManager setActionName:@"Bad Action"];
+    [self.managedObjectContext.undoManager endUndoGrouping];
+    if (!modified) {
+        [self.managedObjectContext.undoManager undo];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
-}
+   }
 
 @end

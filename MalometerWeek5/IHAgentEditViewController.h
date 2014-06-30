@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "IHDismissProtocol.h"
 
+@class Agent;
 
 @interface IHAgentEditViewController : UIViewController
 
-@property (strong, nonatomic) id agent;
-
+@property (strong, nonatomic) Agent *agent;
 @property (nonatomic, weak) id <IHDismissProtocol> delegate;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end
