@@ -16,6 +16,6 @@
 @property (nonatomic, retain) NSNumber * destructionPower;
 @property (nonatomic, retain) NSNumber * motivation;
 @property (nonatomic, retain) NSNumber * assesment;
-@property (nonatomic, retain) NSString * pictureUUID;
+@property (nonatomic, retain) NSString * pictureURL;
 
 @end

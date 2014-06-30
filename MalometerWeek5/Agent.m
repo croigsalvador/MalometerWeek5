@@ -15,6 +15,14 @@
 @dynamic destructionPower;
 @dynamic motivation;
 @dynamic assesment;
-@dynamic pictureUUID;
+@dynamic pictureURL;
+
+- (NSNumber *)assesment {
+    return [NSNumber numberWithInt:([self.destructionPower intValue]+ [self.motivation intValue]) /2];
+}
+
++ (NSSet *)keyPathsForValuesAffectingAssesment {
+    return [NSSet setWithObjects:@"destructionPower",@"motivation", nil];
+}
 
 @end

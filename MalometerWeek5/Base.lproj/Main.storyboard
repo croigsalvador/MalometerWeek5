@@ -132,6 +132,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc9-ny-UwB">
+                                <rect key="frame" x="53" y="447" width="211" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -148,6 +154,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="assesmentLabel" destination="xc9-ny-UwB" id="Uc5-mo-r9F"/>
                         <outlet property="destructionPowerLabel" destination="sVE-dB-Yaw" id="lxe-eH-e8A"/>
                         <outlet property="destructionStepper" destination="Cfc-8C-zUK" id="dma-E0-Lll"/>
                         <outlet property="imageView" destination="qXA-m8-EP6" id="g4e-Fn-bZf"/>
