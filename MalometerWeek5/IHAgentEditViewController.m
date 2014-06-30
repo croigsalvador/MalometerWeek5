@@ -9,7 +9,7 @@
 #import "IHAgentEditViewController.h"
 #import "Agent.h"
 
-@interface IHAgentEditViewController ()
+@interface IHAgentEditViewController ()<UIImagePickerControllerDelegate, UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *destructionPowerLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *destructionStepper;
 @property (weak, nonatomic) IBOutlet UILabel *motivationLabel;
@@ -116,9 +116,14 @@
     self.agent.motivation =[NSNumber numberWithInt:value];
 }
 
+#pragma mark -
+#pragma mark - Touches View
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
+
+#pragma mark -
+#pragma mark - Observer Method
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -135,5 +140,61 @@
         self.assesmentLabel.text = self.assesments[[agent.assesment intValue]];
     }
 }
+
+
+
+//#pragma mark - Action Sheet Delegate Methods
+//
+//- (void) actionSheet:(UIActionSheet *)actionSheet
+//clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    if (buttonIndex == actionSheet.destructiveButtonIndex) {
+//        [self deletePicture];
+//    } else if (buttonIndex == actionSheet.firstOtherButtonIndex) {
+//        [self obtainPictureFromCamera:YES];
+//    } else if (buttonIndex == actionSheet.firstOtherButtonIndex + actionSheetLibrary) {
+//        [self obtainPictureFromCamera:NO];
+//    }
+//}
+//
+//
+//- (void) obtainPictureFromCamera:(BOOL)useCamera {
+//    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+//    
+//    if (useCamera &&
+//        [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+//        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//    } else {
+//        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//    }
+//    imagePicker.allowsEditing = YES;
+//    imagePicker.delegate = self;
+//    
+//    [self presentViewController:imagePicker animated:YES completion:nil];
+//    
+//}
+//
+//
+//- (void) deletePicture {
+//    imageStatus = ImageStatusDelete;
+//    self.agentPicture = nil;
+//    [self displayAgentPicture];
+//}
+//
+//#pragma mark - Image picker view controller delegate
+//
+//- (void) imagePickerController:(UIImagePickerController *)imagePickerController
+// didFinishPickingMediaWithInfo:(NSDictionary *)info {
+//    self.agentPicture = [info[UIImagePickerControllerEditedImage] imageSquaredWithSide:pictureSide];
+//    // AgentPicture is not observed, because it changes while this controller is hidden.
+//    [self displayAgentPicture];
+//    imageStatus = ImageStatusPreserveNew;
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+//
+//
+//- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+
 
 @end

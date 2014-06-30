@@ -26,6 +26,7 @@
 		1D9A595319616C49006CB73F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D9A595119616C49006CB73F /* InfoPlist.strings */; };
 		1D9A595519616C49006CB73F /* MalometerWeek5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A595419616C49006CB73F /* MalometerWeek5Tests.m */; };
 		1D9A59681961BDF5006CB73F /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A59671961BDF5006CB73F /* Agent.m */; };
+		1D9A596B1961BED0006CB73F /* Agent+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A596A1961BED0006CB73F /* Agent+Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		1D9A5962196176F0006CB73F /* IHDismissProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHDismissProtocol.h; sourceTree = "<group>"; };
 		1D9A59661961BDF5006CB73F /* Agent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agent.h; sourceTree = "<group>"; };
 		1D9A59671961BDF5006CB73F /* Agent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agent.m; sourceTree = "<group>"; };
+		1D9A59691961BED0006CB73F /* Agent+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Agent+Model.h"; sourceTree = "<group>"; };
+		1D9A596A1961BED0006CB73F /* Agent+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Agent+Model.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 			children = (
 				1D9A59661961BDF5006CB73F /* Agent.h */,
 				1D9A59671961BDF5006CB73F /* Agent.m */,
+				1D9A59691961BED0006CB73F /* Agent+Model.h */,
+				1D9A596A1961BED0006CB73F /* Agent+Model.m */,
 				1D9A593719616C49006CB73F /* MalometerWeek5.xcdatamodeld */,
 			);
 			name = Model;
@@ -305,6 +310,7 @@
 			files = (
 				1D9A592F19616C48006CB73F /* main.m in Sources */,
 				1D9A593F19616C49006CB73F /* IHAgentEditViewController.m in Sources */,
+				1D9A596B1961BED0006CB73F /* Agent+Model.m in Sources */,
 				1D9A593319616C49006CB73F /* IHAppDelegate.m in Sources */,
 				1D9A59681961BDF5006CB73F /* Agent.m in Sources */,
 				1D9A593919616C49006CB73F /* MalometerWeek5.xcdatamodeld in Sources */,

@@ -34,20 +34,23 @@ static NSString *kAgentKey              = @"Agent";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    [self.managedObjectContext.undoManager beginUndoGrouping];
     if ([[segue identifier] isEqualToString:kSegueIdentifier]) {
         [self moveToDetailsViewControllerWithSegue:segue];
     } else {
-//        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-//        NSManagedObject *agent = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//
-//        IHAgentEditViewController *detailsViewController = [segue destinationViewController];
-//        detailsViewController.agent = agent;
-//        detailsViewController.delegate = self;
+        [self moveToCellDetailsControllerWithSegue:segue andSender:sender];
     }
 }
 
+- (void)moveToCellDetailsControllerWithSegue:(UIStoryboardSegue *)segue andSender:(id)sender {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    Agent *agent = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    IHAgentEditViewController *detailsViewController =(IHAgentEditViewController *) [[segue destinationViewController]topViewController];
+    detailsViewController.agent = agent;
+    detailsViewController.delegate = self;
+}
+
 - (void)moveToDetailsViewControllerWithSegue:(UIStoryboardSegue *)segue {
-    [self.managedObjectContext.undoManager beginUndoGrouping];
     Agent *agent = [NSEntityDescription insertNewObjectForEntityForName:kAgentKey inManagedObjectContext:self.managedObjectContext];
     UINavigationController *navViewController = [segue destinationViewController];
     IHAgentEditViewController *detailsViewController =  [navViewController.viewControllers lastObject];
@@ -89,12 +92,12 @@ static NSString *kAgentKey              = @"Agent";
         
         NSError *error = nil;
         if (![context save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
-    }   
+    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
@@ -135,14 +138,14 @@ static NSString *kAgentKey              = @"Agent";
     
 	NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error]) {
-	     // Replace this implementation with code to handle the error appropriately.
-	     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
 	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
     
     return _fetchedResultsController;
-}    
+}
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
@@ -209,8 +212,24 @@ static NSString *kAgentKey              = @"Agent";
     [self.managedObjectContext.undoManager endUndoGrouping];
     if (!modified) {
         [self.managedObjectContext.undoManager undo];
+    } else {
+        [self saveContext];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
-   }
+}
+
+
+#pragma mark - Core Data Save
+
+- (void) saveContext {
+    // Save the context.
+    NSError *error = nil;
+    if (![self.managedObjectContext save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+    }
+}
 
 @end
