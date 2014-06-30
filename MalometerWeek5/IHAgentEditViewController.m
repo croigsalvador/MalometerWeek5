@@ -60,6 +60,18 @@
     [self setupDefaultLabelValues];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.agent addObserver:self forKeyPath:@"destructionPower" options:0 context:NULL];
+    [self.agent addObserver:self forKeyPath:@"motivation" options:0 context:NULL];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self.agent removeObserver:self forKeyPath:@"destructionPower"];
+    [self.agent removeObserver:self forKeyPath:@"motivation"];
+}
+
 #pragma mark - Setup Methods
 
 - (void)setupDefaultLabelValues {
@@ -78,7 +90,6 @@
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender {
     if ([self.delegate respondsToSelector:@selector(modifiedDataInController:modified:)]) {
         [self.delegate modifiedDataInController:self modified:self.isModified];
- 
     }
 }
 
@@ -90,7 +101,6 @@
 
 - (IBAction)destructionPowerChanged:(UIStepper *)sender {
     NSUInteger value =(NSUInteger)sender.value;
-    self.destructionPowerLabel.text = self.destructionPowers[value];
     self.agent.destructionPower = [NSNumber numberWithInt:value];
 }
 
@@ -102,6 +112,18 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    Agent *agent = (Agent *) object;
+    if ([keyPath isEqualToString:@"destructionPower"]) {
+        self.destructionPowerLabel.text = self.destructionPowers[[agent.destructionPower intValue]];
+    } else if ([keyPath isEqualToString:@"motivation"]) {
+        self.motivationLabel.text = self.motivations[[agent.motivation intValue]];
+    }
 }
 
 @end
