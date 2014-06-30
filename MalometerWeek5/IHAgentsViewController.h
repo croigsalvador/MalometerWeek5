@@ -10,7 +10,7 @@
 #import "IHDismissProtocol.h"
 #import <CoreData/CoreData.h>
 
-@interface IHMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate, IHDismissProtocol>
+@interface IHAgentsViewController : UITableViewController <NSFetchedResultsControllerDelegate, IHDismissProtocol>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

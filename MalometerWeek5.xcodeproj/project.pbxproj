@@ -16,8 +16,8 @@
 		1D9A593319616C49006CB73F /* IHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593219616C49006CB73F /* IHAppDelegate.m */; };
 		1D9A593619616C49006CB73F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9A593419616C49006CB73F /* Main.storyboard */; };
 		1D9A593919616C49006CB73F /* MalometerWeek5.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593719616C49006CB73F /* MalometerWeek5.xcdatamodeld */; };
-		1D9A593C19616C49006CB73F /* IHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593B19616C49006CB73F /* IHMasterViewController.m */; };
-		1D9A593F19616C49006CB73F /* IHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593E19616C49006CB73F /* IHDetailViewController.m */; };
+		1D9A593C19616C49006CB73F /* IHAgentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593B19616C49006CB73F /* IHAgentsViewController.m */; };
+		1D9A593F19616C49006CB73F /* IHAgentEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593E19616C49006CB73F /* IHAgentEditViewController.m */; };
 		1D9A594119616C49006CB73F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D9A594019616C49006CB73F /* Images.xcassets */; };
 		1D9A594819616C49006CB73F /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A594719616C49006CB73F /* XCTest.framework */; };
 		1D9A594919616C49006CB73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A592019616C48006CB73F /* Foundation.framework */; };
@@ -51,10 +51,10 @@
 		1D9A593219616C49006CB73F /* IHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IHAppDelegate.m; sourceTree = "<group>"; };
 		1D9A593519616C49006CB73F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D9A593819616C49006CB73F /* MalometerWeek5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MalometerWeek5.xcdatamodel; sourceTree = "<group>"; };
-		1D9A593A19616C49006CB73F /* IHMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHMasterViewController.h; sourceTree = "<group>"; };
-		1D9A593B19616C49006CB73F /* IHMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IHMasterViewController.m; sourceTree = "<group>"; };
-		1D9A593D19616C49006CB73F /* IHDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHDetailViewController.h; sourceTree = "<group>"; };
-		1D9A593E19616C49006CB73F /* IHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IHDetailViewController.m; sourceTree = "<group>"; };
+		1D9A593A19616C49006CB73F /* IHAgentsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHAgentsViewController.h; sourceTree = "<group>"; };
+		1D9A593B19616C49006CB73F /* IHAgentsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IHAgentsViewController.m; sourceTree = "<group>"; };
+		1D9A593D19616C49006CB73F /* IHAgentEditViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHAgentEditViewController.h; sourceTree = "<group>"; };
+		1D9A593E19616C49006CB73F /* IHAgentEditViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IHAgentEditViewController.m; sourceTree = "<group>"; };
 		1D9A594019616C49006CB73F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1D9A594619616C49006CB73F /* MalometerWeek5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MalometerWeek5Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D9A594719616C49006CB73F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -166,10 +166,10 @@
 		1D9A595E19616CC0006CB73F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				1D9A593A19616C49006CB73F /* IHMasterViewController.h */,
-				1D9A593B19616C49006CB73F /* IHMasterViewController.m */,
-				1D9A593D19616C49006CB73F /* IHDetailViewController.h */,
-				1D9A593E19616C49006CB73F /* IHDetailViewController.m */,
+				1D9A593A19616C49006CB73F /* IHAgentsViewController.h */,
+				1D9A593B19616C49006CB73F /* IHAgentsViewController.m */,
+				1D9A593D19616C49006CB73F /* IHAgentEditViewController.h */,
+				1D9A593E19616C49006CB73F /* IHAgentEditViewController.m */,
 				1D9A5962196176F0006CB73F /* IHDismissProtocol.h */,
 			);
 			name = Controller;
@@ -299,10 +299,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D9A592F19616C48006CB73F /* main.m in Sources */,
-				1D9A593F19616C49006CB73F /* IHDetailViewController.m in Sources */,
+				1D9A593F19616C49006CB73F /* IHAgentEditViewController.m in Sources */,
 				1D9A593319616C49006CB73F /* IHAppDelegate.m in Sources */,
 				1D9A593919616C49006CB73F /* MalometerWeek5.xcdatamodeld in Sources */,
-				1D9A593C19616C49006CB73F /* IHMasterViewController.m in Sources */,
+				1D9A593C19616C49006CB73F /* IHAgentsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

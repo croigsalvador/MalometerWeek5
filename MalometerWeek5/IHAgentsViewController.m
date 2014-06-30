@@ -6,58 +6,38 @@
 //  Copyright (c) 2014 IronHack. All rights reserved.
 //
 
-#import "IHMasterViewController.h"
-#import "IHDetailViewController.h"
+#import "IHAgentsViewController.h"
+#import "IHAgentEditViewController.h"
 
-static NSString *kSegueIdentifier       =@"CreateAgent";
-static NSString *kAgentKey              =@"Agent";
+static NSString *kSegueIdentifier       = @"CreateAgent";
+static NSString *kAgentKey              = @"Agent";
 
-@interface IHMasterViewController ()
+@interface IHAgentsViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+@property (strong, nonatomic) NSUndoManager *undoManager;
 @end
 
-@implementation IHMasterViewController
-
+@implementation IHAgentsViewController
+@synthesize undoManager;
 - (void)awakeFromNib
 {
     [super awakeFromNib];
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-//    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-//
-//    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-//    self.navigationItem.rightBarButtonItem = addButton;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark - Custom Getter
 
-//- (void)insertNewObject:(id)sender
-//{
-//    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-//    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-//    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-//    
-//    // If appropriate, configure the new managed object.
-//    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-//    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-//    
-//    // Save the context.
-//    NSError *error = nil;
-//    if (![context save:&error]) {
-//         // Replace this implementation with code to handle the error appropriately.
-//         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-//        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-//        abort();
-//    }
-//}
+- (NSUndoManager *)undoManager {
+    if (!undoManager) {
+        undoManager = self.managedObjectContext.undoManager;
+        undoManager.levelsOfUndo = 10;
+        undoManager.groupsByEvent = NO;
+    }
+    return undoManager;
+}
 
 #pragma mark -
 #pragma mark - Navigation
@@ -65,13 +45,25 @@ static NSString *kAgentKey              =@"Agent";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:kSegueIdentifier]) {
-        NSManagedObject *agent = [NSEntityDescription insertNewObjectForEntityForName:kAgentKey inManagedObjectContext:self.managedObjectContext];
-        [agent setValue:@"Carlos" forKey:@"name"];
-        UINavigationController *navViewController = [segue destinationViewController];
-        IHDetailViewController *detailsViewController =  [navViewController.viewControllers lastObject];
-        detailsViewController.agent = agent;
-        detailsViewController.delegate = self;
+        [self moveToDetailsViewControllerWithSegue:segue];
+    } else {
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+//        NSManagedObject *agent = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//
+//        IHAgentEditViewController *detailsViewController = [segue destinationViewController];
+//        detailsViewController.agent = agent;
+//        detailsViewController.delegate = self;
     }
+}
+
+- (void)moveToDetailsViewControllerWithSegue:(UIStoryboardSegue *)segue {
+    
+    [self.undoManager beginUndoGrouping];
+    NSManagedObject *agent = [NSEntityDescription insertNewObjectForEntityForName:kAgentKey inManagedObjectContext:self.managedObjectContext];
+    UINavigationController *navViewController = [segue destinationViewController];
+    IHAgentEditViewController *detailsViewController =  [navViewController.viewControllers lastObject];
+    detailsViewController.agent = agent;
+    detailsViewController.delegate = self;
 }
 
 #pragma mark - Table View
@@ -233,6 +225,7 @@ static NSString *kAgentKey              =@"Agent";
 #pragma mark - Details Delegate methods
 
 - (void)modifiedData {
+    [self.undoManager endUndoGrouping];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

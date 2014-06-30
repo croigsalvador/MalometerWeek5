@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class IHAgentEditViewController;
+
 @protocol IHDismissProtocol <NSObject>
 
 - (void)modifiedData;

@@ -10,7 +10,7 @@
 #import "IHDismissProtocol.h"
 
 
-@interface IHDetailViewController : UIViewController
+@interface IHAgentEditViewController : UIViewController
 
 @property (strong, nonatomic) id agent;
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 IronHack. All rights reserved.
 //
 
-#import "IHDetailViewController.h"
+#import "IHAgentEditViewController.h"
 
-@interface IHDetailViewController ()
+@interface IHAgentEditViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *destructionPowerLabel;
 @property (weak, nonatomic) IBOutlet UIStepper *destructionStepper;
 @property (weak, nonatomic) IBOutlet UILabel *motivationLabel;
@@ -19,10 +19,12 @@
 @property (strong, nonatomic) NSArray *destructionPowers;
 @property (strong, nonatomic) NSArray *motivations;
 
+@property (nonatomic, getter = isEditing) BOOL editing;
+
 - (void)configureView;
 @end
 
-@implementation IHDetailViewController
+@implementation IHAgentEditViewController
 
 #pragma mark - Managing the detail item
 
@@ -39,9 +41,9 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
+    
     if (self.agent) {
-        self.detailDescriptionLabel.text = [[self.agent valueForKey:@"timeStamp"] description];
+        self.nameTextField.text = [[self.agent valueForKey:@"name"] description];
     }
 }
 
@@ -51,11 +53,19 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+
     [self configureView];
     [self setupArrays];
+    [self setupDefaultLabelValues];
 }
 
 #pragma mark - Setup Methods
+
+- (void)setupDefaultLabelValues {
+    self.destructionPowerLabel.text = self.destructionPowers[[[self.agent valueForKey:@"destructionPower"] intValue]];
+    self.motivationLabel.text = self.motivations[[[self.agent valueForKey:@"motivation"] intValue]];
+    
+}
 
 - (void)setupArrays {
     self.destructionPowers = @[@"Patoso",@"Debil",@"Neutro", @"Macho", @"Terminator"];
@@ -67,8 +77,31 @@
 - (IBAction)cancelButtonPressed:(UIBarButtonItem *)sender {
     [self.delegate modifiedData];
 }
+
 - (IBAction)saveButtonPressed:(id)sender {
+ 
+        [self.nameTextField resignFirstResponder];
+        [self.agent setValue:self.nameTextField.text forKey:@"name"];
+        
+        NSUInteger value =(NSUInteger)self.destructionStepper.value;
+        [self.agent setValue:[NSNumber numberWithInt:value] forKey:@"destructionPower"];
+        
+        NSUInteger motivationValue = (NSUInteger)self.motivationStepper.value;
+        [self.agent setValue:[NSNumber numberWithInt:motivationValue] forKey:@"motivation"];
 }
 
+- (IBAction)destructionPowerChanged:(UIStepper *)sender {
+    NSUInteger value =(NSUInteger)sender.value;
+    self.destructionPowerLabel.text = self.destructionPowers[value];
+}
+
+- (IBAction)motivationValueChanged:(UIStepper *)sender {
+    NSUInteger value =(NSUInteger)sender.value;
+    self.motivationLabel.text = self.motivations[value];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
 @end
