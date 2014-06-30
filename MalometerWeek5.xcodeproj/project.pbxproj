@@ -61,6 +61,7 @@
 		1D9A595019616C49006CB73F /* MalometerWeek5Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MalometerWeek5Tests-Info.plist"; sourceTree = "<group>"; };
 		1D9A595219616C49006CB73F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1D9A595419616C49006CB73F /* MalometerWeek5Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MalometerWeek5Tests.m; sourceTree = "<group>"; };
+		1D9A5962196176F0006CB73F /* IHDismissProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHDismissProtocol.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,15 +124,11 @@
 		1D9A592819616C48006CB73F /* MalometerWeek5 */ = {
 			isa = PBXGroup;
 			children = (
-				1D9A593119616C48006CB73F /* IHAppDelegate.h */,
-				1D9A593219616C49006CB73F /* IHAppDelegate.m */,
-				1D9A593419616C49006CB73F /* Main.storyboard */,
-				1D9A593A19616C49006CB73F /* IHMasterViewController.h */,
-				1D9A593B19616C49006CB73F /* IHMasterViewController.m */,
-				1D9A593D19616C49006CB73F /* IHDetailViewController.h */,
-				1D9A593E19616C49006CB73F /* IHDetailViewController.m */,
+				1D9A596019616CCE006CB73F /* AppDelegate */,
+				1D9A595E19616CC0006CB73F /* Controller */,
+				1D9A596119616CDC006CB73F /* Model */,
+				1D9A595F19616CC7006CB73F /* View */,
 				1D9A594019616C49006CB73F /* Images.xcassets */,
-				1D9A593719616C49006CB73F /* MalometerWeek5.xcdatamodeld */,
 				1D9A592919616C48006CB73F /* Supporting Files */,
 			);
 			path = MalometerWeek5;
@@ -164,6 +161,43 @@
 				1D9A595119616C49006CB73F /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1D9A595E19616CC0006CB73F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A593A19616C49006CB73F /* IHMasterViewController.h */,
+				1D9A593B19616C49006CB73F /* IHMasterViewController.m */,
+				1D9A593D19616C49006CB73F /* IHDetailViewController.h */,
+				1D9A593E19616C49006CB73F /* IHDetailViewController.m */,
+				1D9A5962196176F0006CB73F /* IHDismissProtocol.h */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		1D9A595F19616CC7006CB73F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A593419616C49006CB73F /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		1D9A596019616CCE006CB73F /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A593119616C48006CB73F /* IHAppDelegate.h */,
+				1D9A593219616C49006CB73F /* IHAppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		1D9A596119616CDC006CB73F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1D9A593719616C49006CB73F /* MalometerWeek5.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

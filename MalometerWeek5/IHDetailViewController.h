@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IHDismissProtocol.h"
+
 
 @interface IHDetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) id agent;
+
+@property (nonatomic, weak) id <IHDismissProtocol> delegate;
 
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @end
