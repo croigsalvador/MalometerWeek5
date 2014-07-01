@@ -12,7 +12,7 @@
 
 @implementation Domain
 
-@dynamic attribute;
+@dynamic name;
 @dynamic agents;
 
 @end

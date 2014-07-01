@@ -9,11 +9,13 @@
 #import "IHAgentsViewController.h"
 #import "IHAgentEditViewController.h"
 #import "Agent+Model.h"
+#import "FreakType+Model.h"
+#import "Domain+Model.h"
 
 static NSString *kSegueIdentifier       = @"CreateAgent";
 static NSString *kAgentKey              = @"Agent";
 
-@interface IHAgentsViewController ()
+@interface IHAgentsViewController ()<NSFetchedResultsControllerDelegate>
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
 
@@ -201,6 +203,7 @@ static NSString *kAgentKey              = @"Agent";
     if (!modified) {
         [self.managedObjectContext.undoManager undo];
     } else {
+        
         [self saveContext];
     }
     [self dismissViewControllerAnimated:YES completion:nil];

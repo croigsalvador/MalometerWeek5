@@ -8,6 +8,7 @@
 
 #import "Agent.h"
 #import "Domain.h"
+#import "FreakType.h"
 
 
 @implementation Agent

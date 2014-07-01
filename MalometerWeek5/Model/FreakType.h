@@ -13,7 +13,7 @@
 
 @interface FreakType : NSManagedObject
 
-@property (nonatomic, retain) UNKNOWN_TYPE name;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *agents;
 @end
 

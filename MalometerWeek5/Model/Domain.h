@@ -13,7 +13,7 @@
 
 @interface Domain : NSManagedObject
 
-@property (nonatomic, retain) UNKNOWN_TYPE attribute;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSSet *agents;
 @end
 
