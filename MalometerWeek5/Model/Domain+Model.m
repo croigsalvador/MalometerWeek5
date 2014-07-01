@@ -8,7 +8,7 @@
 
 #import "Domain+Model.h"
 NSString * const kDomainEntityNameKey            = @"Domain";
-NSString * const kPropertyNameKey                = @"name";
+static NSString *kPropertyNameKey                = @"name";
 
 @implementation Domain (Model)
 
@@ -33,4 +33,11 @@ NSString * const kPropertyNameKey                = @"name";
     }
     return domain;
 }
+
++ (NSFetchRequest *) fetchRequestControlledDomains {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kDomainEntityNameKey];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"(SUBQUERY(agents,$x,$x.destructionPower >= 3)).@count > 1"];
+    return fetchRequest;
+}
+
 @end

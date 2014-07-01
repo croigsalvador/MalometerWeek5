@@ -13,4 +13,6 @@
 + (instancetype)initWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context;
 + (Domain *)giveDomainTypeWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;
 
++ (NSFetchRequest *) fetchRequestControlledDomains;
+
 @end

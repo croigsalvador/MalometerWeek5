@@ -71,7 +71,6 @@
     [self.agent addObserver:self forKeyPath:@"destructionPower" options:0 context:NULL];
     [self.agent addObserver:self forKeyPath:@"motivation" options:0 context:NULL];
     [self.agent addObserver:self forKeyPath:@"assesment" options:0 context:NULL];
-
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -87,6 +86,7 @@
     self.destructionPowerLabel.text = self.destructionPowers[[[self.agent valueForKey:@"destructionPower"] intValue]];
     self.motivationLabel.text = self.motivations[[[self.agent valueForKey:@"motivation"] intValue]];
     self.assesmentLabel.text = self.assesments[[self.agent.assesment intValue]];
+    self.categoryTextField.text = self.agent.category.name;
 }
 
 - (void)setupArrays {

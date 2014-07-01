@@ -112,7 +112,7 @@ static NSString *kAgentKey              = @"Agent";
 - (void) displayControlledDomainsInTitle {
     NSError *error;
     NSUInteger controlledDomains = [self.managedObjectContext countForFetchRequest:[Domain fetchRequestControlledDomains] error:&error];
-        
+    
     self.title = [NSString stringWithFormat:@"Controlled domains: %d", controlledDomains];
 }
 
@@ -121,26 +121,27 @@ static NSString *kAgentKey              = @"Agent";
 
 - (NSFetchedResultsController *) fetchedResultsController {
     if (_fetchedResultsController == nil) {
-        [NSFetchedResultsController deleteCacheWithName:@"Agents"];
-        NSSortDescriptor *categoryNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"category.name" ascending:YES];
-        NSSortDescriptor *destPowSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kDestructionPowerKey ascending:NO];
+        //        [NSFetchedResultsController deleteCacheWithName:@"Agents"];
+        //        NSSortDescriptor *categoryNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"category.name" ascending:YES];
+        // NSSortDescriptor *destPowSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kDestructionPowerKey ascending:NO];
         NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kNameKey ascending:YES];
-        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[Agent fetchAllAgentsWithSortDescriptors:@[categoryNameSortDescriptor, destPowSortDescriptor, nameSortDescriptor]]managedObjectContext:self.managedObjectContext
-                                                        sectionNameKeyPath:nil
-                                                        sectionNameKeyPath:@"category.name"
-                                                                 cacheName:@"Agents"];
-    
-    _fetchedResultsController.delegate = self;
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[Agent fetchAllAgentsWithSortDescriptors:@[nameSortDescriptor]] managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Agents"];
+        
+        
+        _fetchedResultsController.delegate = self;
+        NSError *error = nil;
+        if (![self.fetchedResultsController performFetch:&error]) {
+            // Replace this implementation with code to handle the error appropriately.
+            // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        
     }
+    return _fetchedResultsController;
 }
 
 
-
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
-    [self displayControlledDomainsInTitle];
-}
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
 {
     [self.tableView beginUpdates];
@@ -186,7 +187,10 @@ static NSString *kAgentKey              = @"Agent";
     }
 }
 
-
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    [self.tableView endUpdates];
+    [self displayControlledDomainsInTitle];
+}
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
@@ -201,14 +205,19 @@ static NSString *kAgentKey              = @"Agent";
     [self.managedObjectContext.undoManager setActionName:@"Bad Action"];
     [self.managedObjectContext.undoManager endUndoGrouping];
     if (!modified) {
-        [self.managedObjectContext.undoManager undo];
+        // [self.managedObjectContext.undoManager undo];
     } else {
-        
         [self saveContext];
     }
+    NSArray *matches = [self.managedObjectContext executeFetchRequest:[Agent fetchAllAgentsByName] error:nil];
+    
+    for (Agent *last in matches) {
+        NSLog(@"Matches %@", last.name);
+        NSLog(@"Category%@", last.category.name);
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 #pragma mark - Core Data Save
 
