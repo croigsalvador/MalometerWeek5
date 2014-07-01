@@ -138,6 +138,23 @@
     XCTAssertFalse(moc.hasSave, @"Moc save must not be called if there isn't changes");
 }
 
+- (void)testAppDocumentDirectoryIsNotNil{
+    NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    XCTAssertNotNil(documentsPath, @"The object is nil");
+}
+- (void)testManagedObjectModelIsCreated{
+    FakeMOC *moc = [[FakeMOC alloc] init];
+    [sut setValue:moc forKey:@"managedObjectContext"];
+    NSManagedObjectModel *moModel = sut.managedObjectModel;
+    XCTAssertNotNil(moModel, @"The object is nil");
+}
+- (void)testManagedObjectPersistentStoreIsNotNil{
+    NSPersistentStoreCoordinator *coordinatorPersistent = sut.persistentStoreCoordinator;
+    XCTAssertNotNil(coordinatorPersistent, @"The object is nil");
+}
+
+
+
 
 
 @end

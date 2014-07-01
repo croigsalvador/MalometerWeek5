@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1D097CE71962F76400B1E4E9 /* AppDelegateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D097CE61962F76400B1E4E9 /* AppDelegateTests.m */; };
+		1D097CEB19630F9700B1E4E9 /* AgentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D097CEA19630F9700B1E4E9 /* AgentTests.m */; };
+		1D097CEC196310FF00B1E4E9 /* MalometerWeek5.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A593719616C49006CB73F /* MalometerWeek5.xcdatamodeld */; };
+		1D097CED1963110400B1E4E9 /* Agent+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A596A1961BED0006CB73F /* Agent+Model.m */; };
+		1D097CEE1963110B00B1E4E9 /* FreakType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C91101962CA9A0006A6F5 /* FreakType.m */; };
+		1D097CEF1963110D00B1E4E9 /* Domain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C91131962CA9A0006A6F5 /* Domain.m */; };
+		1D097CF01963111000B1E4E9 /* Agent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C91161962CA9B0006A6F5 /* Agent.m */; };
+		1D097CF11963111300B1E4E9 /* FreakType+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C910D1962CA2F0006A6F5 /* FreakType+Model.m */; };
+		1D097CF21963111600B1E4E9 /* Domain+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C91191962D0800006A6F5 /* Domain+Model.m */; };
 		1D6C910E1962CA2F0006A6F5 /* FreakType+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C910D1962CA2F0006A6F5 /* FreakType+Model.m */; };
 		1D6C91111962CA9A0006A6F5 /* FreakType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C91101962CA9A0006A6F5 /* FreakType.m */; };
 		1D6C91141962CA9A0006A6F5 /* Domain.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6C91131962CA9A0006A6F5 /* Domain.m */; };
@@ -30,7 +38,6 @@
 		1D9A594A19616C49006CB73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A592419616C48006CB73F /* UIKit.framework */; };
 		1D9A594B19616C49006CB73F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9A592619616C48006CB73F /* CoreData.framework */; };
 		1D9A595319616C49006CB73F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1D9A595119616C49006CB73F /* InfoPlist.strings */; };
-		1D9A595519616C49006CB73F /* MalometerWeek5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A595419616C49006CB73F /* MalometerWeek5Tests.m */; };
 		1D9A596B1961BED0006CB73F /* Agent+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D9A596A1961BED0006CB73F /* Agent+Model.m */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		1D097CE61962F76400B1E4E9 /* AppDelegateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegateTests.m; sourceTree = "<group>"; };
+		1D097CEA19630F9700B1E4E9 /* AgentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgentTests.m; sourceTree = "<group>"; };
 		1D6C910C1962CA2F0006A6F5 /* FreakType+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FreakType+Model.h"; sourceTree = "<group>"; };
 		1D6C910D1962CA2F0006A6F5 /* FreakType+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FreakType+Model.m"; sourceTree = "<group>"; };
 		1D6C910F1962CA9A0006A6F5 /* FreakType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FreakType.h; sourceTree = "<group>"; };
@@ -78,7 +86,6 @@
 		1D9A594719616C49006CB73F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1D9A595019616C49006CB73F /* MalometerWeek5Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MalometerWeek5Tests-Info.plist"; sourceTree = "<group>"; };
 		1D9A595219616C49006CB73F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1D9A595419616C49006CB73F /* MalometerWeek5Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MalometerWeek5Tests.m; sourceTree = "<group>"; };
 		1D9A5962196176F0006CB73F /* IHDismissProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IHDismissProtocol.h; sourceTree = "<group>"; };
 		1D9A59691961BED0006CB73F /* Agent+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Agent+Model.h"; sourceTree = "<group>"; };
 		1D9A596A1961BED0006CB73F /* Agent+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Agent+Model.m"; sourceTree = "<group>"; };
@@ -110,12 +117,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D097CE819630F5B00B1E4E9 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+		1D097CE919630F7800B1E4E9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1D097CEA19630F9700B1E4E9 /* AgentTests.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		1D9A591419616C48006CB73F = {
 			isa = PBXGroup;
 			children = (
+				1D9A591F19616C48006CB73F /* Frameworks */,
 				1D9A592819616C48006CB73F /* MalometerWeek5 */,
 				1D9A594E19616C49006CB73F /* MalometerWeek5Tests */,
-				1D9A591F19616C48006CB73F /* Frameworks */,
+				1D097CE819630F5B00B1E4E9 /* New Group */,
 				1D9A591E19616C48006CB73F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -168,7 +191,7 @@
 		1D9A594E19616C49006CB73F /* MalometerWeek5Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1D9A595419616C49006CB73F /* MalometerWeek5Tests.m */,
+				1D097CE919630F7800B1E4E9 /* Model */,
 				1D9A594F19616C49006CB73F /* Supporting Files */,
 				1D097CE61962F76400B1E4E9 /* AppDelegateTests.m */,
 			);
@@ -349,8 +372,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D9A595519616C49006CB73F /* MalometerWeek5Tests.m in Sources */,
+				1D097CEE1963110B00B1E4E9 /* FreakType.m in Sources */,
 				1D097CE71962F76400B1E4E9 /* AppDelegateTests.m in Sources */,
+				1D097CEB19630F9700B1E4E9 /* AgentTests.m in Sources */,
+				1D097CF11963111300B1E4E9 /* FreakType+Model.m in Sources */,
+				1D097CEF1963110D00B1E4E9 /* Domain.m in Sources */,
+				1D097CF21963111600B1E4E9 /* Domain+Model.m in Sources */,
+				1D097CEC196310FF00B1E4E9 /* MalometerWeek5.xcdatamodeld in Sources */,
+				1D097CED1963110400B1E4E9 /* Agent+Model.m in Sources */,
+				1D097CF01963111000B1E4E9 /* Agent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
