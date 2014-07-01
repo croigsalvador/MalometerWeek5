@@ -11,6 +11,26 @@
 //#import <OCMock/OCMock.h>
 #import "IHAppDelegate.h"
 
+@interface FakeMOC : NSManagedObjectContext
+
+@property (nonatomic) BOOL hasSave;
+
+@end
+
+@implementation FakeMOC
+
+- (BOOL)hasChanges {
+    return NO;
+}
+
+- (BOOL)save:(NSError *__autoreleasing *)error {
+    self.hasSave = YES;
+    return self.hasSave;
+}
+
+@end
+
+
 
 @interface AppDelegateTests : XCTestCase {
     // Core Data stack objects.
@@ -106,6 +126,16 @@
 
     // Check
     XCTAssertNotNil(sut.managedObjectContext, @"The object to test must be created in setUp.");
+}
+
+- (void)testDoesntSaveWithNotChange {
+    // Prepare (Arrange)
+    FakeMOC *moc = [[FakeMOC alloc] init];
+    [sut setValue:moc forKey:@"managedObjectContext"];
+    // Operate (Act)
+    [sut saveContext];
+    // Check
+    XCTAssertFalse(moc.hasSave, @"Moc save must not be called if there isn't changes");
 }
 
 
