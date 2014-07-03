@@ -13,6 +13,7 @@ NSString * const kPropertyNameKey                = @"name";
 
 @implementation FreakType (Model)
 
+
 + (instancetype)initWithName:(NSString *)name inManagedObjectContext:(NSManagedObjectContext *)context{
     FreakType *freakType = [NSEntityDescription insertNewObjectForEntityForName:kFreakTypeEntityNameKey inManagedObjectContext:context];
     freakType.name = name;

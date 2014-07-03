@@ -47,6 +47,12 @@ static NSString *kAgentKey              = @"Agent";
 - (void)moveToCellDetailsControllerWithSegue:(UIStoryboardSegue *)segue andSender:(id)sender {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     Agent *agent = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    //    if (indexPath.row%2 == 0) {
+    //        agent.power = @"Inteligence";
+    //    } else {
+    //        agent.power = @"Strength";
+    //
+    //    }
     IHAgentEditViewController *detailsViewController =(IHAgentEditViewController *) [[segue destinationViewController]topViewController];
     detailsViewController.agent = agent;
     detailsViewController.delegate = self;
@@ -66,7 +72,13 @@ static NSString *kAgentKey              = @"Agent";
 {
     return [[self.fetchedResultsController sections] count];
 }
-
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+    NSString *categoryName = [[[self.fetchedResultsController sections] objectAtIndex:section] name];
+    NSNumber *dpAvg = [[[[self.fetchedResultsController sections] objectAtIndex:section] objects] valueForKeyPath:@"@avg.destructionPower"];
+    
+    return [NSString stringWithFormat:@"%@ (%@)", categoryName, dpAvg];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
@@ -121,12 +133,12 @@ static NSString *kAgentKey              = @"Agent";
 
 - (NSFetchedResultsController *) fetchedResultsController {
     if (_fetchedResultsController == nil) {
-        //        [NSFetchedResultsController deleteCacheWithName:@"Agents"];
-        //        NSSortDescriptor *categoryNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"category.name" ascending:YES];
-        // NSSortDescriptor *destPowSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kDestructionPowerKey ascending:NO];
+        [NSFetchedResultsController deleteCacheWithName:@"Agents"];
+        NSSortDescriptor *categoryNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"category.name" ascending:YES];
+        NSSortDescriptor *destPowSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kDestructionPowerKey ascending:NO];
         NSSortDescriptor *nameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:kNameKey ascending:YES];
-        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[Agent fetchAllAgentsWithSortDescriptors:@[nameSortDescriptor]] managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"Agents"];
         
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:[Agent fetchAllAgentsWithSortDescriptors:@[nameSortDescriptor, categoryNameSortDescriptor, destPowSortDescriptor]] managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"category.name" cacheName:@"Agents"];
         
         _fetchedResultsController.delegate = self;
         NSError *error = nil;
@@ -136,7 +148,6 @@ static NSString *kAgentKey              = @"Agent";
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
-        
     }
     return _fetchedResultsController;
 }
@@ -209,13 +220,6 @@ static NSString *kAgentKey              = @"Agent";
     } else {
         [self saveContext];
     }
-    NSArray *matches = [self.managedObjectContext executeFetchRequest:[Agent fetchAllAgentsByName] error:nil];
-    
-    for (Agent *last in matches) {
-        NSLog(@"Matches %@", last.name);
-        NSLog(@"Category%@", last.category.name);
-    }
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
